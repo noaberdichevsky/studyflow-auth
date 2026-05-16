@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head><title>StudyFlow Auth</title></head>
+<body>
+<script>
+  var params = new URLSearchParams(window.location.search);
+  var code = params.get('code');
+  if (code) {
+    window.location.href = 'com.companyname.studyflow://oauth2redirect?code=' + code;
+  }
+</script>
+<p>Redirecting to StudyFlow...</p>
+</body>
+</html>
