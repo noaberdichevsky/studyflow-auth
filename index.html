@@ -6,7 +6,9 @@
   var params = new URLSearchParams(window.location.search);
   var code = params.get('code');
   if (code) {
-    window.location.href = 'com.companyname.studyflow://oauth2redirect?code=' + code;
+    window.location.replace('com.companyname.studyflow://oauth2redirect?code=' + encodeURIComponent(code));
+  } else {
+    document.write('No code found');
   }
 </script>
 <p>Redirecting to StudyFlow...</p>
