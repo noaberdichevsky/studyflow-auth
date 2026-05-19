@@ -7,7 +7,6 @@
   var code = params.get('code');
   if (code) {
     document.getElementById('msg').innerHTML = '✅ הכניסה בוצעה בהצלחה!';
-    document.getElementById('code').innerHTML = code;
     document.getElementById('btn').style.display = 'block';
     document.getElementById('btn').onclick = function() {
       window.location.replace('studyflowauth://callback?code=' + encodeURIComponent(code));
@@ -15,7 +14,6 @@
   }
 </script>
 <h2 id="msg">מתחבר...</h2>
-<p id="code" style="font-size:10px;word-break:break-all;color:#888;"></p>
 <button id="btn" style="display:none;padding:20px 40px;font-size:20px;background:#4CAF50;color:white;border:none;border-radius:12px;margin-top:20px;">
   ✅ חזרי לאפליקציה
 </button>
