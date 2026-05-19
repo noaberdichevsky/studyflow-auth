@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head><title>StudyFlow Auth</title></head>
-<body style="font-family:Arial;text-align:center;padding:40px;">
+<body style="font-family:Arial;text-align:center;padding:40px;background:#f5f5f5;">
 <script>
   var params = new URLSearchParams(window.location.search);
   var code = params.get('code');
-  document.write('<h1>CODE: ' + code + '</h1>');
-  if (code && code !== 'null') {
+  if (code) {
+    document.getElementById('msg').innerHTML = '✅ הכניסה בוצעה בהצלחה!';
+    document.getElementById('code').innerHTML = code;
     document.getElementById('btn').style.display = 'block';
+    document.getElementById('btn').onclick = function() {
+      window.location.replace('studyflowauth://callback?code=' + encodeURIComponent(code));
+    };
   }
-</script> 
-<button id="btn" style="padding:16px;background:green;color:white;font-size:18px;border:none;border-radius:8px;">לחצי כאן</button>
+</script>
+<h2 id="msg">מתחבר...</h2>
+<p id="code" style="font-size:10px;word-break:break-all;color:#888;"></p>
+<button id="btn" style="display:none;padding:20px 40px;font-size:20px;background:#4CAF50;color:white;border:none;border-radius:12px;margin-top:20px;">
+  ✅ חזרי לאפליקציה
+</button>
 </body>
-</html>
+</html> 
