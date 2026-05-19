@@ -6,7 +6,9 @@
   var params = new URLSearchParams(window.location.search);
   var code = params.get('code');
   if (code) {
-    window.location.replace('com.companyname.studyflow://oauth2redirect?code=' + encodeURIComponent(code));
+    var intentUrl = 'intent://oauth2redirect?code=' + encodeURIComponent(code) + 
+                    '#Intent;scheme=com.companyname.studyflow;package=com.companyname.studyflow;end';
+    window.location.replace(intentUrl);
   } else {
     document.write('No code found');
   }
