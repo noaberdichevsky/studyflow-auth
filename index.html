@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head><title>StudyFlow Auth</title></head>
-<body>
-<h2>אנא המתן...</h2>
+<body style="font-family:Arial;text-align:center;padding:40px;background:#f0f0f0;">
 <script>
   var params = new URLSearchParams(window.location.search);
   var code = params.get('code');
   if (code) {
-    navigator.clipboard.writeText(code).then(function() {
-      document.body.innerHTML = '<h2>✅ הכניסה בוצעה! חזור לאפליקציה StudyFlow</h2>';
-    });
+    document.write(
+      '<h2 style="color:green">✅ כניסה בוצעה בהצלחה!</h2>' +
+      '<p>העתיקי את הקוד הבא ידנית לאפליקציה:</p>' +
+      '<div style="background:white;padding:10px;border-radius:8px;word-break:break-all;font-size:12px;border:2px solid #ccc;">' + code + '</div>' +
+      '<br><button onclick="navigator.clipboard.writeText(\'' + code + '\').then(()=>alert(\'הועתק! חזרי לאפליקציה\'))" style="padding:12px 24px;font-size:16px;background:#4CAF50;color:white;border:none;border-radius:8px;cursor:pointer">📋 העתק ופתח StudyFlow</button>'
+    );
   } else {
-    document.body.innerHTML = '<h2>❌ שגיאה: לא נמצא קוד</h2>';
+    document.write('<h2 style="color:red">❌ שגיאה: לא נמצא קוד</h2>');
   }
 </script>
 </body>
