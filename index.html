@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head><title>StudyFlow Auth</title></head>
-<body>
+<body style="font-family:Arial;text-align:center;padding:40px;background:#f0f0f0;">
 <script>
   var params = new URLSearchParams(window.location.search);
   var code = params.get('code');
   if (code) {
     navigator.clipboard.writeText(code).then(function() {
-      window.close();
-    }).catch(function() {
-      document.body.innerHTML = '<h2>✅ לחצי על הכפתור לסיום</h2><button onclick="navigator.clipboard.writeText(\'' + code + '\').then(()=>window.close())" style="padding:16px 32px;font-size:18px;background:#4CAF50;color:white;border:none;border-radius:8px;">📋 סיום</button>';
+      document.body.innerHTML = '<h2 style="color:green">✅ הכניסה בוצעה!</h2><p style="font-size:20px">כעת חזרי לאפליקציה StudyFlow</p>';
     });
   }
 </script>
