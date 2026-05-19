@@ -5,22 +5,11 @@
 <script>
   var params = new URLSearchParams(window.location.search);
   var code = params.get('code');
-  if (code) {
-    document.getElementById('msg').innerHTML = '✅ הכניסה בוצעה! לחצי כאן:';
+  document.write('<h1>CODE: ' + code + '</h1>');
+  if (code && code !== 'null') {
     document.getElementById('btn').style.display = 'block';
-    document.getElementById('btn').onclick = function() {
-      navigator.clipboard.writeText(code).then(function() {
-        window.history.back();
-      }).catch(function() {
-        alert('הועתק! חזרי לאפליקציה');
-        window.history.back();
-      });
-    };
   }
 </script>
-<p id="msg">מתחבר...</p>
-<button id="btn" style="display:none;padding:16px 32px;font-size:18px;background:#4CAF50;color:white;border:none;border-radius:8px;">
-  ✅ לחצי כאן לסיום
-</button>
+<button id="btn" style="padding:16px;background:green;color:white;font-size:18px;border:none;border-radius:8px;">לחצי כאן</button>
 </body>
 </html>
