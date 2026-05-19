@@ -2,17 +2,17 @@
 <html>
 <head><title>StudyFlow Auth</title></head>
 <body>
+<h2>אנא המתן...</h2>
 <script>
   var params = new URLSearchParams(window.location.search);
   var code = params.get('code');
   if (code) {
-    var intentUrl = 'intent://oauth2redirect?code=' + encodeURIComponent(code) + 
-                    '#Intent;scheme=com.companyname.studyflow;package=com.companyname.studyflow;end';
-    window.location.replace(intentUrl);
+    navigator.clipboard.writeText(code).then(function() {
+      document.body.innerHTML = '<h2>✅ הכניסה בוצעה! חזור לאפליקציה StudyFlow</h2>';
+    });
   } else {
-    document.write('No code found');
+    document.body.innerHTML = '<h2>❌ שגיאה: לא נמצא קוד</h2>';
   }
 </script>
-<p>Redirecting to StudyFlow...</p>
 </body>
 </html>
